@@ -1,0 +1,47 @@
+#include<filename.h> - searching for file follows an implementation define rule
+#include"filename.h" - searching for file started where source program is stored
+
+#undef 
+#define PI 3.14159265
+int main() {
+    printf("The value of PI is %f\n", PI);
+    
+    #undef PI // Undefine the macro PI
+    
+    printf("The value of PI is %f\n", PI); // This will generate a compiler error
+    return 0;
+}
+
+
+#define forever (; ;)
+define max(A,B) ((A) > (B) ? (A) : (B))
+#define dprint(expr) printf(#expr "= %g\n", expr);
+dprint(x/y) -> printf("x/y" " = %g\n", x/y) ->  printf("x/y = %g\n", x/y);
+
+#define paste(front,back) front ## back 
+## is token pasting operator
+
+#define FUNC_NAME(name) function_##name
+void FUNC_NAME(foo)(int x) {
+    printf("The value of x is %d\n", x);
+}
+void FUNC_NAME(bar)(int y) {
+    printf("The value of y is %d\n", y);
+}
+int main() {
+    FUNC_NAME(foo)(10); // This calls the function "function_foo" with argument 10
+    FUNC_NAME(bar)(20); // This calls the function "function_bar" with argument 20
+    return 0;
+}
+  
+
+#if #elif #else  #endif 
+
+#ifndef is used to include a block of code only if a certain macro is not defined. If the macro is defined, the block of code is skipped. Here's an example:
+#ifndef MYHEADER_H
+#define MYHEADER_H
+
+// Header file contents go here
+
+#endif
+
