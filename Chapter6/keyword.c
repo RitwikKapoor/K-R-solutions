@@ -1,3 +1,5 @@
+//This program has errors. Does not work
+
 #include<stdio.h>
 #include<ctype.h>
 #include<string.h>
