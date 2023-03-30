@@ -68,26 +68,26 @@ void convert_bold(char *line, FILE *output_file){
 	    start = strstr(start, "**");
 
 	    if (start == NULL) {
-            fwrite(ptr, 1, strlen(ptr), output_file);
+            	fwrite(ptr, 1, strlen(ptr), output_file);
 	        fprintf(output_file, "\n");
-            break;
-        }
+            	break;
+            }
 
 	    if(ptr != start){
-		    fwrite(ptr,1,start-ptr,output_file);
+		fwrite(ptr,1,start-ptr,output_file);
 	    }
 
         end = strstr(start + 2, "**");
 
         if(end != NULL) {
             len = end - start - 2;
-   	        fprintf(output_file, "<strong>");
+   	    fprintf(output_file, "<strong>");
             fwrite(start + 2, 1, len, output_file);
             fprintf(output_file, "</strong>");
             ptr = end + 2;
-	        start = end + 2;
+	    start = end + 2;
         }else{
-	        fwrite(ptr, 1, strlen(ptr), output_file);
+	    fwrite(ptr, 1, strlen(ptr), output_file);
             break;
 	    }
     }
@@ -104,13 +104,13 @@ void convert_italic(char *line, FILE *output_file) {
 	    start = strstr(start, "_");
 
 	    if(start == NULL) {
-            fwrite(ptr, 1, strlen(ptr), output_file);
+                fwrite(ptr, 1, strlen(ptr), output_file);
 	        fprintf(output_file, "\n");
                 break;
         }
 
 	    if(ptr != start){
-		    fwrite(ptr,1,start-ptr,output_file);
+		fwrite(ptr,1,start-ptr,output_file);
 	    }
 
         end = strstr(start + 1, "_");
@@ -121,9 +121,9 @@ void convert_italic(char *line, FILE *output_file) {
             fwrite(start + 1, 1, len, output_file);
             fprintf(output_file, "</em>");
             ptr = end + 1;
-	        start = end + 1;
+	    start = end + 1;
         }else{
-	        fwrite(ptr, 1, strlen(ptr), output_file);
+	    fwrite(ptr, 1, strlen(ptr), output_file);
             break;
 	    }
     }
