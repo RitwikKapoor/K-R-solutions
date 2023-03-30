@@ -69,7 +69,6 @@ void convert_bold(char *line, FILE *output_file){
 
 	    if (start == NULL) {
             	fwrite(ptr, 1, strlen(ptr), output_file);
-	        fprintf(output_file, "\n");
             	break;
             }
 
@@ -89,7 +88,7 @@ void convert_bold(char *line, FILE *output_file){
         }else{
 	    fwrite(ptr, 1, strlen(ptr), output_file);
             break;
-	    }
+	}
     }
 }
 
@@ -105,7 +104,6 @@ void convert_italic(char *line, FILE *output_file) {
 
 	    if(start == NULL) {
                 fwrite(ptr, 1, strlen(ptr), output_file);
-	        fprintf(output_file, "\n");
                 break;
         }
 
@@ -125,7 +123,7 @@ void convert_italic(char *line, FILE *output_file) {
         }else{
 	    fwrite(ptr, 1, strlen(ptr), output_file);
             break;
-	    }
+	}
     }
 }
 
@@ -154,9 +152,11 @@ void convert_line(char *line, FILE *output_file) {
 		    break;
 	    case 3:
 		    convert_bold(line, output_file);
+	    	    fprintf(output_file, "\n");
 		    break;
 	    case 4:
 		    convert_italic(line, output_file);
+	            fprintf(output_file, "\n");
 		    break;
 	    default:
             	    convert_paragraph(line, output_file);
