@@ -117,7 +117,7 @@ void convert_italic(char *line, FILE *output_file) {
 
         if(end != NULL){
             len = end - start - 1;
-   	        fprintf(output_file, "<em>");
+   	    fprintf(output_file, "<em>");
             fwrite(start + 1, 1, len, output_file);
             fprintf(output_file, "</em>");
             ptr = end + 1;
@@ -146,7 +146,7 @@ void convert_line(char *line, FILE *output_file) {
     int num = assign(line);
 
     switch(num){
-    	case 1:
+    	    case 1:
 		    convert_heading(line, output_file);
 		    break;
 	    case 2:
@@ -159,7 +159,7 @@ void convert_line(char *line, FILE *output_file) {
 		    convert_italic(line, output_file);
 		    break;
 	    default:
-            convert_paragraph(line, output_file);
+            	    convert_paragraph(line, output_file);
 		    break;
     }
 }
